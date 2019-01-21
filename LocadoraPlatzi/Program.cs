@@ -35,10 +35,27 @@ namespace LocadoraPlatzi
                 Console.WriteLine("Seja bem vindo à locadora de filmes Platzi!");
                 Console.WriteLine("Escolha uma opção:");
                 Console.WriteLine("1 - Listar todos os filmes");
-                Console.WriteLine("0 - Sair");
+                Console.WriteLine("2 - Sair");
                 Console.WriteLine("\n");
 
-                Console.ReadLine();
+                int escolha = 0;
+                Int32.TryParse(Console.ReadLine(), out escolha);
+                switch (escolha)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.WriteLine("Listar todos os filmes");
+                        Console.ReadLine();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.Write("Obrigado por nos visitar!");
+                        Console.ReadLine();
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
