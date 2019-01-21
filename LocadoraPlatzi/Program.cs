@@ -39,6 +39,27 @@ namespace LocadoraPlatzi
             Console.WriteLine("Quantidade: " + unicoFilme.quantidade);
             Console.WriteLine("Lançamento: " + unicoFilme.lancamento);
 
+            Console.WriteLine("\n");
+
+            if (unicoFilme.lancamento)
+            {
+                Console.WriteLine("O filme é um lançamento");
+            } else
+            {
+                Console.WriteLine("O filme não é um lançamento");
+            }
+
+            if(unicoFilme.avaliacao < 7)
+            {
+                Console.WriteLine("O filme não é tão bom.");
+            }else if(unicoFilme.avaliacao >= 7 && unicoFilme.avaliacao < 9)
+            {
+                Console.WriteLine("O filme é bom!");
+            } else
+            {
+                Console.WriteLine("O filme é fantástico!");
+            }
+
             Console.ReadLine();
         }
     }
