@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraPlatzi
 {
@@ -39,7 +37,7 @@ namespace LocadoraPlatzi
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine(clientes[clienteLogadoID].nome + ", seja bem vindo(a) à locadora de filmes Platzi!");
+                Console.WriteLine(clientes[clienteLogadoID].Nome + ", seja bem vindo(a) à locadora de filmes Platzi!");
                 Console.WriteLine("O seu filme alugado é: " + clientes[clienteLogadoID].filmeAlugado.nome);
 
                 Console.WriteLine("Escolha uma opção:");
@@ -75,8 +73,8 @@ namespace LocadoraPlatzi
 
         private static void InicializarClientes()
         {
-            clientes[0] = new Cliente("Ruhan", filmes[0]);
-            clientes[1] = new Cliente("Paula", filmes[1]);
+            clientes[0] = new Cliente("Ruhan", "ruhan", "123");
+            clientes[1] = new Cliente("Paula", "paula", "456");
         }
 
         private static void ListarFilmes()

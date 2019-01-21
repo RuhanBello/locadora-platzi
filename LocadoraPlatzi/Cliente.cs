@@ -8,14 +8,22 @@ namespace LocadoraPlatzi
 {
     class Cliente
     {
-        public string nome;
+        protected string nome;
+        public string Nome { get { return nome; } }
+
+        protected string login;
+        public string Login { get { return login; } }
+
+        protected string senha;
+        public string Senha { get { return senha; } }
 
         public Filme filmeAlugado;
 
-        public Cliente(string nome, Filme filmeAlugado)
+        public Cliente(string nome, string login, string senha)
         {
             this.nome = nome;
-            this.filmeAlugado = filmeAlugado;
+            this.login = login;
+            this.senha = senha;
         }
     }
 }
