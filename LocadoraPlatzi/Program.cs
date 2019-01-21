@@ -5,26 +5,39 @@ using System.Threading.Tasks;
 
 namespace LocadoraPlatzi
 {
+    struct Filme
+    {
+        public string nome;
+        public int anoLancamento;
+        public string genero;
+        public float avaliacao;
+        public int quantidade;
+        public bool lancamento;
+    }
+
     class Program
     {
+        public static Filme unicoFilme;
+
         static void Main(string[] args)
         {
-            string nome = "Matrix";
-            int anoLancamento = 1999;
-            string genero = "Ação";
-            float avaliacao = 9.5f;
-            int quantidade = 5;
-            bool lancamento = false;
+            unicoFilme = new Filme();
+            unicoFilme.nome = "Matrix";
+            unicoFilme.anoLancamento = 1999;
+            unicoFilme.genero = "Ação";
+            unicoFilme.avaliacao = 9.5f;
+            unicoFilme.quantidade = 5;
+            unicoFilme.lancamento = false;
 
             Console.WriteLine("Seja bem-vindo à locadora Platzi!");
             Console.WriteLine("Por enquanto, este é o nosso único filme:");
 
-            Console.WriteLine("Nome: " + nome);
-            Console.WriteLine("Ano de lançamento: " + anoLancamento);
-            Console.WriteLine("Gênero: " + genero);
-            Console.WriteLine("Avaliação: " + avaliacao);
-            Console.WriteLine("Quantidade: " + quantidade);
-            Console.WriteLine("Lançamento: " + lancamento);
+            Console.WriteLine("Nome: " + unicoFilme.nome);
+            Console.WriteLine("Ano de lançamento: " + unicoFilme.anoLancamento);
+            Console.WriteLine("Gênero: " + unicoFilme.genero);
+            Console.WriteLine("Avaliação: " + unicoFilme.avaliacao);
+            Console.WriteLine("Quantidade: " + unicoFilme.quantidade);
+            Console.WriteLine("Lançamento: " + unicoFilme.lancamento);
 
             Console.ReadLine();
         }
