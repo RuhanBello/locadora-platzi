@@ -25,8 +25,8 @@ namespace LocadoraPlatzi
 
     class Program
     {
-        public static Filme[] filmes = new Filme[3];
-        public static Cliente[] clientes = new Cliente[2];
+        public static List<Filme> filmes = new List<Filme>();
+        public static List<Cliente> clientes = new List<Cliente>();
 
         static void Main(string[] args)
         {
@@ -66,15 +66,15 @@ namespace LocadoraPlatzi
 
         private static void InicializarFilmes()
         {
-            filmes[0] = new Filme("Matrix", 1999, "Ação", 9.5f, 5, false);
-            filmes[1] = new Filme("Matrix Reloaded", 2003, "Ação", 8f, 10, false);
-            filmes[2] = new Filme("Matrix Revolutions", 2003, "Ação", 6f, 20, false);
+            filmes.Add(new Filme("Matrix", 1999, "Ação", 9.5f, 5, false));
+            filmes.Add(new Filme("Matrix Reloaded", 2003, "Ação", 8f, 10, false));
+            filmes.Add(new Filme("Matrix Revolutions", 2003, "Ação", 6f, 20, false));
         }
 
         private static void InicializarClientes()
         {
-            clientes[0] = new Cliente("Ruhan", "ruhan", "123");
-            clientes[1] = new Cliente("Paula", "paula", "456");
+            clientes.Add(new Cliente("Ruhan", "ruhan", "123"));
+            clientes.Add(new Cliente("Paula", "paula", "456"));
         }
 
         private static void ListarFilmes()
@@ -83,7 +83,7 @@ namespace LocadoraPlatzi
             Console.WriteLine("Listar todos os filmes");
             Console.WriteLine("\n");
 
-            for (int i = 0; i < filmes.Length; i++)
+            for (int i = 0; i < filmes.Count; i++)
             {
                 Console.WriteLine("---------------");
                 Console.WriteLine("Nome: " + filmes[i].nome);
