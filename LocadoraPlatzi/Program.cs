@@ -17,17 +17,24 @@ namespace LocadoraPlatzi
 
     class Program
     {
-        public static Filme unicoFilme;
+        public static Filme[] filmes = new Filme[3];
 
         static void Main(string[] args)
         {
-            unicoFilme = new Filme();
-            unicoFilme.nome = "Matrix";
-            unicoFilme.anoLancamento = 1999;
-            unicoFilme.genero = "Ação";
-            unicoFilme.avaliacao = 9.5f;
-            unicoFilme.quantidade = 5;
-            unicoFilme.lancamento = false;
+            
+            filmes[0] = new Filme();
+            filmes[0].nome = "Matrix";
+            filmes[0].anoLancamento = 1999;
+            filmes[0].genero = "Ação";
+            filmes[0].avaliacao = 9.5f;
+            filmes[0].quantidade = 5;
+            filmes[0].lancamento = false;
+
+            filmes[1] = new Filme();
+            filmes[1].nome = "Matrix Reloaded";
+
+            filmes[2] = new Filme();
+            filmes[2].nome = "Matrix Revolutions";
 
             while (true)
             {
@@ -45,6 +52,13 @@ namespace LocadoraPlatzi
                     case 1:
                         Console.Clear();
                         Console.WriteLine("Listar todos os filmes");
+                        Console.WriteLine("\n");
+
+                        for (int i = 0; i < filmes.Length; i++)
+                        {
+                            Console.WriteLine(filmes[i].nome);
+                        }
+
                         Console.ReadLine();
                         break;
                     case 2:
