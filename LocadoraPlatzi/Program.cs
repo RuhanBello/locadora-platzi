@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LocadoraPlatzi
 {
-    struct Filme
+    class Filme
     {
         public string nome;
         public int anoLancamento;
@@ -25,24 +25,27 @@ namespace LocadoraPlatzi
 
     class Program
     {
-        public static List<Filme> filmes = new List<Filme>();
-        public static List<Cliente> clientes = new List<Cliente>();
+        private static List<Filme> filmes = new List<Filme>();
+        private static List<Cliente> clientes = new List<Cliente>();
+        private static int clienteLogadoID = 0;
 
         static void Main(string[] args)
         {
             InicializarFilmes();
             InicializarClientes();
 
-            int clienteLogadoID = 0;
             while (true)
             {
                 Console.Clear();
                 Console.WriteLine(clientes[clienteLogadoID].Nome + ", seja bem vindo(a) à locadora de filmes Platzi!");
-                Console.WriteLine("O seu filme alugado é: " + clientes[clienteLogadoID].filmeAlugado.nome);
+
+                if (clientes[clienteLogadoID].filmeAlugado != null)
+                    Console.WriteLine("O seu filme alugado é: " + clientes[clienteLogadoID].filmeAlugado.nome);
 
                 Console.WriteLine("Escolha uma opção:");
                 Console.WriteLine("1 - Listar todos os filmes");
-                Console.WriteLine("2 - Sair");
+                Console.WriteLine("2 - Alugar filme");
+                Console.WriteLine("3 - Sair");
                 Console.WriteLine("\n");
 
                 int escolha = 0;
@@ -52,7 +55,11 @@ namespace LocadoraPlatzi
                     case 1:
                         ListarFilmes();
                         break;
+
                     case 2:
+                        AlugarFilme();
+                        break;
+                    case 3:
                         Console.Clear();
                         Console.Write("Obrigado por nos visitar!");
                         Console.ReadLine();
@@ -96,6 +103,34 @@ namespace LocadoraPlatzi
             }
 
             Console.WriteLine("Pressione qualquer botão para retornar.");
+            Console.ReadLine();
+        }
+
+        private static void AlugarFilme()
+        {
+            Console.Clear();
+            Console.Write("Digite o nome do filme: ");
+            string nomeDoFilme = Console.ReadLine();
+
+            for (int i = 0; i < filmes.Count; i++)
+            {
+                if (filmes[i].nome == nomeDoFilme)
+                {
+                    if (clientes[clienteLogadoID].filmeAlugado != null)
+                    {
+                        clientes[clienteLogadoID].filmeAlugado.quantidade++;
+                    }
+
+                    clientes[clienteLogadoID].filmeAlugado = filmes[i];
+                    filmes[i].quantidade--;
+
+                    Console.Write("Filme alugado com sucesso!");
+                    Console.ReadLine();
+                    return;
+                }
+            }
+
+            Console.Write("A locadora não possui o filme buscado.");
             Console.ReadLine();
         }
     }
