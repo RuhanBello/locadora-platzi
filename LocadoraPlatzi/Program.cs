@@ -13,6 +13,16 @@ namespace LocadoraPlatzi
         public float avaliacao;
         public int quantidade;
         public bool lancamento;
+
+        public Filme(string nome, int anoLancamento, string genero, float avaliacao, int quantidade, bool lancamento)
+        {
+            this.nome = nome;
+            this.anoLancamento = anoLancamento;
+            this.genero = genero;
+            this.avaliacao = avaliacao;
+            this.quantidade = quantidade;
+            this.lancamento = lancamento;
+        }
     }
 
     class Program
@@ -22,26 +32,12 @@ namespace LocadoraPlatzi
 
         static void Main(string[] args)
         {
-            filmes[0].nome = "Matrix";
-            filmes[0].anoLancamento = 1999;
-            filmes[0].genero = "Ação";
-            filmes[0].avaliacao = 9.5f;
-            filmes[0].quantidade = 5;
-            filmes[0].lancamento = false;
+            filmes[0] = new Filme("Matrix", 1999, "Ação", 9.5f, 5, false);
+            filmes[1] = new Filme("Matrix Reloaded", 2003, "Ação", 8f, 10, false);
+            filmes[2] = new Filme("Matrix Revolutions", 2003, "Ação", 6f, 20, false);
 
-            filmes[1] = new Filme();
-            filmes[1].nome = "Matrix Reloaded";
-
-            filmes[2] = new Filme();
-            filmes[2].nome = "Matrix Revolutions";
-
-            clientes[0] = new Cliente();
-            clientes[0].nome = "Ruhan";
-            clientes[0].filmeAlugado = filmes[0];
-
-            clientes[1] = new Cliente();
-            clientes[1].nome = "Paula";
-            clientes[1].filmeAlugado = filmes[1];
+            clientes[0] = new Cliente("Ruhan", filmes[0]);
+            clientes[1] = new Cliente("Paula", filmes[1]);
 
             int clienteLogadoID = 0;
             while (true)

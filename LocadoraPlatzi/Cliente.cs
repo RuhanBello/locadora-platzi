@@ -11,5 +11,11 @@ namespace LocadoraPlatzi
         public string nome;
 
         public Filme filmeAlugado;
+
+        public Cliente(string nome, Filme filmeAlugado)
+        {
+            this.nome = nome;
+            this.filmeAlugado = filmeAlugado;
+        }
     }
 }
