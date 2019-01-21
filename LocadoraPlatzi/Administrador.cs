@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace LocadoraPlatzi
 {
-    class Cliente : Usuario
+    class Administrador : Usuario
     {
-        public Filme filmeAlugado;
-
-        public Cliente(string nome, string login, string senha) : base(nome, login, senha)
+        public Administrador(string nome, string login, string senha) : base(nome, login, senha)
         {
         }
     }

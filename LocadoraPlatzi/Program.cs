@@ -29,6 +29,7 @@ namespace LocadoraPlatzi
     {
         public static List<Filme> filmes = new List<Filme>();
         public static List<Cliente> clientes = new List<Cliente>();
+        public static List<Administrador> administradores = new List<Administrador>();
         public static int clienteLogadoID = 0;
 
         static void Main(string[] args)
@@ -88,6 +89,8 @@ namespace LocadoraPlatzi
         {
             clientes.Add(new Cliente("Ruhan", "ruhan", "123"));
             clientes.Add(new Cliente("Paula", "paula", "456"));
+
+            administradores.Add(new Administrador("Elda", "elda", "789"));
         }
     }
 }
