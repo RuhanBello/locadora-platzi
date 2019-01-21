@@ -3,16 +3,18 @@ using System.Collections.Generic;
 
 namespace LocadoraPlatzi
 {
+    enum Genero { Acao, Terror, Comedia, Romance };
+
     class Filme
     {
         public string nome;
         public int anoLancamento;
-        public string genero;
+        public Genero genero;
         public float avaliacao;
         public int quantidade;
         public bool lancamento;
 
-        public Filme(string nome, int anoLancamento, string genero, float avaliacao, int quantidade, bool lancamento)
+        public Filme(string nome, int anoLancamento, Genero genero, float avaliacao, int quantidade, bool lancamento)
         {
             this.nome = nome;
             this.anoLancamento = anoLancamento;
@@ -44,8 +46,9 @@ namespace LocadoraPlatzi
 
                 Console.WriteLine("Escolha uma opção:");
                 Console.WriteLine("1 - Listar todos os filmes");
-                Console.WriteLine("2 - Alugar filme");
-                Console.WriteLine("3 - Sair");
+                Console.WriteLine("2 - Listar filmes por gênero");
+                Console.WriteLine("3 - Alugar filme");
+                Console.WriteLine("4 - Sair");
                 Console.WriteLine("\n");
 
                 int escolha = 0;
@@ -55,11 +58,13 @@ namespace LocadoraPlatzi
                     case 1:
                         ListarFilmes();
                         break;
-
                     case 2:
-                        AlugarFilme();
+                        ListarPorGenero();
                         break;
                     case 3:
+                        AlugarFilme();
+                        break;
+                    case 4:
                         Console.Clear();
                         Console.Write("Obrigado por nos visitar!");
                         Console.ReadLine();
@@ -73,9 +78,10 @@ namespace LocadoraPlatzi
 
         private static void InicializarFilmes()
         {
-            filmes.Add(new Filme("Matrix", 1999, "Ação", 9.5f, 5, false));
-            filmes.Add(new Filme("Matrix Reloaded", 2003, "Ação", 8f, 10, false));
-            filmes.Add(new Filme("Matrix Revolutions", 2003, "Ação", 6f, 20, false));
+            filmes.Add(new Filme("Matrix", 1999, Genero.Acao, 9.5f, 5, false));
+            filmes.Add(new Filme("Matrix Reloaded", 2003, Genero.Acao, 8f, 10, false));
+            filmes.Add(new Filme("Matrix Revolutions", 2003, Genero.Acao, 6f, 20, false));
+            filmes.Add(new Filme("Ghost", 1990, Genero.Romance, 10f, 2, false));
         }
 
         private static void InicializarClientes()
@@ -100,6 +106,31 @@ namespace LocadoraPlatzi
                 Console.WriteLine("Quantidade: " + filmes[i].quantidade);
                 Console.WriteLine("É lançamento: " + filmes[i].lancamento);
                 Console.WriteLine("---------------");
+            }
+
+            Console.WriteLine("Pressione qualquer botão para retornar.");
+            Console.ReadLine();
+        }
+
+        private static void ListarPorGenero()
+        {
+            Console.Clear();
+            Console.Write("Digite o gênero do filme: ");
+            string generoDoFilme = Console.ReadLine();
+
+            for (int i = 0; i < filmes.Count; i++)
+            {
+                if (filmes[i].genero.ToString() == generoDoFilme)
+                {
+                    Console.WriteLine("---------------");
+                    Console.WriteLine("Nome: " + filmes[i].nome);
+                    Console.WriteLine("Ano de lançamento: " + filmes[i].anoLancamento);
+                    Console.WriteLine("Gênero: " + filmes[i].genero);
+                    Console.WriteLine("Avaliação: " + filmes[i].avaliacao);
+                    Console.WriteLine("Quantidade: " + filmes[i].quantidade);
+                    Console.WriteLine("É lançamento: " + filmes[i].lancamento);
+                    Console.WriteLine("---------------");
+                }
             }
 
             Console.WriteLine("Pressione qualquer botão para retornar.");
