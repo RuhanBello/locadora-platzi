@@ -32,12 +32,8 @@ namespace LocadoraPlatzi
 
         static void Main(string[] args)
         {
-            filmes[0] = new Filme("Matrix", 1999, "Ação", 9.5f, 5, false);
-            filmes[1] = new Filme("Matrix Reloaded", 2003, "Ação", 8f, 10, false);
-            filmes[2] = new Filme("Matrix Revolutions", 2003, "Ação", 6f, 20, false);
-
-            clientes[0] = new Cliente("Ruhan", filmes[0]);
-            clientes[1] = new Cliente("Paula", filmes[1]);
+            InicializarFilmes();
+            InicializarClientes();
 
             int clienteLogadoID = 0;
             while (true)
@@ -56,16 +52,7 @@ namespace LocadoraPlatzi
                 switch (escolha)
                 {
                     case 1:
-                        Console.Clear();
-                        Console.WriteLine("Listar todos os filmes");
-                        Console.WriteLine("\n");
-
-                        for (int i = 0; i < filmes.Length; i++)
-                        {
-                            Console.WriteLine(filmes[i].nome);
-                        }
-
-                        Console.ReadLine();
+                        ListarFilmes();
                         break;
                     case 2:
                         Console.Clear();
@@ -77,6 +64,41 @@ namespace LocadoraPlatzi
                         break;
                 }
             }
+        }
+
+        private static void InicializarFilmes()
+        {
+            filmes[0] = new Filme("Matrix", 1999, "Ação", 9.5f, 5, false);
+            filmes[1] = new Filme("Matrix Reloaded", 2003, "Ação", 8f, 10, false);
+            filmes[2] = new Filme("Matrix Revolutions", 2003, "Ação", 6f, 20, false);
+        }
+
+        private static void InicializarClientes()
+        {
+            clientes[0] = new Cliente("Ruhan", filmes[0]);
+            clientes[1] = new Cliente("Paula", filmes[1]);
+        }
+
+        private static void ListarFilmes()
+        {
+            Console.Clear();
+            Console.WriteLine("Listar todos os filmes");
+            Console.WriteLine("\n");
+
+            for (int i = 0; i < filmes.Length; i++)
+            {
+                Console.WriteLine("---------------");
+                Console.WriteLine("Nome: " + filmes[i].nome);
+                Console.WriteLine("Ano de lançamento: " + filmes[i].anoLancamento);
+                Console.WriteLine("Gênero: " + filmes[i].genero);
+                Console.WriteLine("Avaliação: " + filmes[i].avaliacao);
+                Console.WriteLine("Quantidade: " + filmes[i].quantidade);
+                Console.WriteLine("É lançamento: " + filmes[i].lancamento);
+                Console.WriteLine("---------------");
+            }
+
+            Console.WriteLine("Pressione qualquer botão para retornar.");
+            Console.ReadLine();
         }
     }
 }
