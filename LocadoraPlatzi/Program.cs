@@ -27,9 +27,9 @@ namespace LocadoraPlatzi
 
     class Program
     {
-        private static List<Filme> filmes = new List<Filme>();
-        private static List<Cliente> clientes = new List<Cliente>();
-        private static int clienteLogadoID = 0;
+        public static List<Filme> filmes = new List<Filme>();
+        public static List<Cliente> clientes = new List<Cliente>();
+        public static int clienteLogadoID = 0;
 
         static void Main(string[] args)
         {
@@ -56,13 +56,13 @@ namespace LocadoraPlatzi
                 switch (escolha)
                 {
                     case 1:
-                        ListarFilmes();
+                        FuncionalidadesCliente.ListarFilmes();
                         break;
                     case 2:
-                        ListarPorGenero();
+                        FuncionalidadesCliente.ListarPorGenero();
                         break;
                     case 3:
-                        AlugarFilme();
+                        FuncionalidadesCliente.AlugarFilme();
                         break;
                     case 4:
                         Console.Clear();
@@ -88,81 +88,6 @@ namespace LocadoraPlatzi
         {
             clientes.Add(new Cliente("Ruhan", "ruhan", "123"));
             clientes.Add(new Cliente("Paula", "paula", "456"));
-        }
-
-        private static void ListarFilmes()
-        {
-            Console.Clear();
-            Console.WriteLine("Listar todos os filmes");
-            Console.WriteLine("\n");
-
-            for (int i = 0; i < filmes.Count; i++)
-            {
-                Console.WriteLine("---------------");
-                Console.WriteLine("Nome: " + filmes[i].nome);
-                Console.WriteLine("Ano de lançamento: " + filmes[i].anoLancamento);
-                Console.WriteLine("Gênero: " + filmes[i].genero);
-                Console.WriteLine("Avaliação: " + filmes[i].avaliacao);
-                Console.WriteLine("Quantidade: " + filmes[i].quantidade);
-                Console.WriteLine("É lançamento: " + filmes[i].lancamento);
-                Console.WriteLine("---------------");
-            }
-
-            Console.WriteLine("Pressione qualquer botão para retornar.");
-            Console.ReadLine();
-        }
-
-        private static void ListarPorGenero()
-        {
-            Console.Clear();
-            Console.Write("Digite o gênero do filme: ");
-            string generoDoFilme = Console.ReadLine();
-
-            for (int i = 0; i < filmes.Count; i++)
-            {
-                if (filmes[i].genero.ToString() == generoDoFilme)
-                {
-                    Console.WriteLine("---------------");
-                    Console.WriteLine("Nome: " + filmes[i].nome);
-                    Console.WriteLine("Ano de lançamento: " + filmes[i].anoLancamento);
-                    Console.WriteLine("Gênero: " + filmes[i].genero);
-                    Console.WriteLine("Avaliação: " + filmes[i].avaliacao);
-                    Console.WriteLine("Quantidade: " + filmes[i].quantidade);
-                    Console.WriteLine("É lançamento: " + filmes[i].lancamento);
-                    Console.WriteLine("---------------");
-                }
-            }
-
-            Console.WriteLine("Pressione qualquer botão para retornar.");
-            Console.ReadLine();
-        }
-
-        private static void AlugarFilme()
-        {
-            Console.Clear();
-            Console.Write("Digite o nome do filme: ");
-            string nomeDoFilme = Console.ReadLine();
-
-            for (int i = 0; i < filmes.Count; i++)
-            {
-                if (filmes[i].nome == nomeDoFilme)
-                {
-                    if (clientes[clienteLogadoID].filmeAlugado != null)
-                    {
-                        clientes[clienteLogadoID].filmeAlugado.quantidade++;
-                    }
-
-                    clientes[clienteLogadoID].filmeAlugado = filmes[i];
-                    filmes[i].quantidade--;
-
-                    Console.Write("Filme alugado com sucesso!");
-                    Console.ReadLine();
-                    return;
-                }
-            }
-
-            Console.Write("A locadora não possui o filme buscado.");
-            Console.ReadLine();
         }
     }
 }
