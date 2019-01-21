@@ -9,20 +9,22 @@ namespace LocadoraPlatzi
     {
         static void Main(string[] args)
         {
-            bool deveSomar = true;
-            int numeroA = 4;
-            int numeroB = 6;
-            int resultado;
+            string nome = "Matrix";
+            int anoLancamento = 1999;
+            string genero = "Ação";
+            float avaliacao = 9.5f;
+            int quantidade = 5;
+            bool lancamento = false;
 
-            if (deveSomar)
-            {
-                resultado = numeroA + numeroB;
-            } else
-            {
-                resultado = numeroA - numeroB;
-            }
+            Console.WriteLine("Seja bem-vindo à locadora Platzi!");
+            Console.WriteLine("Por enquanto, este é o nosso único filme:");
 
-            Console.WriteLine(resultado);
+            Console.WriteLine("Nome: " + nome);
+            Console.WriteLine("Ano de lançamento: " + anoLancamento);
+            Console.WriteLine("Gênero: " + genero);
+            Console.WriteLine("Avaliação: " + avaliacao);
+            Console.WriteLine("Quantidade: " + quantidade);
+            Console.WriteLine("Lançamento: " + lancamento);
 
             Console.ReadLine();
         }
