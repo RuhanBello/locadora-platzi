@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,64 +9,28 @@ namespace LocadoraPlatzi
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Inteiros");
+            char caractere = 'O';
+            Console.WriteLine(caractere);
 
-            int valorIntA = 3;
-            int valorIntB = 2;
-            int resultadoInt;
+            string frase = "\nStrings suportam frases inteiras";
+            Console.WriteLine(frase);
 
-            resultadoInt = valorIntA + valorIntB;
-            Console.WriteLine("Inteiros " + valorIntA + " + " + valorIntB + " = " + resultadoInt);
+            string fraseA = "\nAlem disso, suportam ";
+            string fraseB = "concatenacao de strings";
+            string resultado = fraseA + fraseB;
+            Console.WriteLine(resultado);
 
-            resultadoInt = valorIntA - valorIntB;
-            Console.WriteLine("\nInteiros " + valorIntA + " - " + valorIntB + " = " + resultadoInt);
+            string fraseComPonto = "\nSuporta separar uma frase atraves de caracteres. Incrivel!";
+            string parteA = fraseComPonto.Split('.')[0];
+            string parteB = fraseComPonto.Split('.')[1];
+            Console.WriteLine(parteA);
+            Console.WriteLine(parteB);
 
-            resultadoInt = valorIntA * valorIntB;
-            Console.WriteLine("\nInteiros " + valorIntA + " * " + valorIntB + " = " + resultadoInt);
+            Console.WriteLine("\nPodemos concatenar aqui tambem. " + "Basta usar a soma.");
 
-            resultadoInt = valorIntA / valorIntB;
-            Console.WriteLine("\nInteiros " + valorIntA + " / " + valorIntB + " = " + resultadoInt);
-
-            resultadoInt = valorIntA % valorIntB;
-            Console.WriteLine("\nInteiros " + valorIntA + " % " + valorIntB + " = " + resultadoInt);
-
-            resultadoInt = 0;
-            resultadoInt++;
-            Console.WriteLine("\nInteiro 0++ = " + resultadoInt);
-
-            resultadoInt = 0;
-            resultadoInt--;
-            Console.WriteLine("\nInteiro 0-- = " + resultadoInt);
-
-            resultadoInt = 0;
-            resultadoInt += 5;
-            Console.WriteLine("\nInteiro 0+=5 = " + resultadoInt);
-
-            resultadoInt = 0;
-            resultadoInt -= 5;
-            Console.WriteLine("\nInteiro 0-=5 = " + resultadoInt);
-
-            Console.Write("\n\nFloats");
-            float valorFloatA = 1;
-            float valorFloatB = 3;
-            float resultadoFloat;
-
-            resultadoFloat = valorFloatA * valorFloatB;
-            Console.WriteLine("\nFloats " + valorFloatA + " * " + valorFloatB + " = " + resultadoFloat);
-
-            resultadoFloat = valorFloatA / valorFloatB;
-            Console.WriteLine("\nFloats " + valorFloatA + " / " + valorFloatB + " = " + resultadoFloat);
-
-            Console.Write("\n\nDoubles");
-            double valorDoubleA = 1;
-            double valorDoubleB = 3;
-            double resultadoDouble;
-
-            resultadoDouble = valorDoubleA * valorDoubleB;
-            Console.WriteLine("\nDoubles " + valorDoubleA + " * " + valorDoubleB + " = " + resultadoDouble);
-
-            resultadoDouble = valorDoubleA / valorDoubleB;
-            Console.WriteLine("\nDoubles " + valorDoubleA + " / " + valorDoubleB + " = " + resultadoDouble);
+            string frasePequena = "Bom dia";
+            int tamanhoFrase = frasePequena.Length;
+            Console.WriteLine("\nPodemos saber a quantidade de caracteres contidos na string Bom Dia: " + tamanhoFrase);
 
             Console.ReadLine();
         }
