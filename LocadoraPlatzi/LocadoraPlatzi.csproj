@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Administrador.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="FuncionalidadesAdministrador.cs" />
     <Compile Include="FuncionalidadesCliente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

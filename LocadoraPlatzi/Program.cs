@@ -50,6 +50,7 @@ namespace LocadoraPlatzi
                 Console.WriteLine("2 - Listar filmes por gênero");
                 Console.WriteLine("3 - Alugar filme");
                 Console.WriteLine("4 - Sair");
+                Console.WriteLine("9 - Adicionar filme");
                 Console.WriteLine("\n");
 
                 int escolha = 0;
@@ -70,6 +71,9 @@ namespace LocadoraPlatzi
                         Console.Write("Obrigado por nos visitar!");
                         Console.ReadLine();
                         Environment.Exit(0);
+                        break;
+                    case 9:
+                        FuncionalidadesAdministrador.AdicionarFilme();
                         break;
                     default:
                         break;
