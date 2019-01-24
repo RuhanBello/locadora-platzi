@@ -28,29 +28,51 @@ namespace LocadoraPlatzi
     class Program
     {
         public static List<Filme> filmes = new List<Filme>();
+
+        public static List<Usuario> usuarios = new List<Usuario>();
         public static List<Cliente> clientes = new List<Cliente>();
         public static List<Administrador> administradores = new List<Administrador>();
-        public static int clienteLogadoID = 0;
+
+        public static Usuario usuarioLogado;
 
         static void Main(string[] args)
         {
             InicializarFilmes();
-            InicializarClientes();
+            InicializarUsuarios();
+
+            Console.Write("Login: ");
+            string login = Console.ReadLine();
+
+            Console.Write("Senha: ");
+            string senha = Console.ReadLine();
+
+            for (int i = 0; i < usuarios.Count; i++)
+            {
+                if (usuarios[i].Login == login && usuarios[i].Senha == senha)
+                {
+                    usuarioLogado = usuarios[i];
+                }
+            }
 
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine(clientes[clienteLogadoID].Nome + ", seja bem vindo(a) à locadora de filmes Platzi!");
+                Console.WriteLine(usuarioLogado.Nome + ", seja bem vindo(a) à locadora de filmes Platzi!");
 
-                if (clientes[clienteLogadoID].filmeAlugado != null)
-                    Console.WriteLine("O seu filme alugado é: " + clientes[clienteLogadoID].filmeAlugado.nome);
+                //if (clientes[clienteLogadoID].filmeAlugado != null)
+                //    Console.WriteLine("O seu filme alugado é: " + clientes[clienteLogadoID].filmeAlugado.nome);
 
                 Console.WriteLine("Escolha uma opção:");
                 Console.WriteLine("1 - Listar todos os filmes");
                 Console.WriteLine("2 - Listar filmes por gênero");
                 Console.WriteLine("3 - Alugar filme");
                 Console.WriteLine("4 - Sair");
-                Console.WriteLine("9 - Adicionar filme");
+
+                if (usuarioLogado is Administrador)
+                {
+                    Console.WriteLine("9 - Adicionar filme");
+                }
+
                 Console.WriteLine("\n");
 
                 int escolha = 0;
@@ -73,7 +95,10 @@ namespace LocadoraPlatzi
                         Environment.Exit(0);
                         break;
                     case 9:
-                        FuncionalidadesAdministrador.AdicionarFilme();
+                        if (usuarioLogado is Administrador)
+                        {
+                            FuncionalidadesAdministrador.AdicionarFilme();
+                        }
                         break;
                     default:
                         break;
@@ -89,12 +114,22 @@ namespace LocadoraPlatzi
             filmes.Add(new Filme("Ghost", 1990, Genero.Romance, 10f, 2, false));
         }
 
-        private static void InicializarClientes()
+        private static void InicializarUsuarios()
         {
             clientes.Add(new Cliente("Ruhan", "ruhan", "123"));
             clientes.Add(new Cliente("Paula", "paula", "456"));
 
             administradores.Add(new Administrador("Elda", "elda", "789"));
+
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                usuarios.Add(clientes[i]);
+            }
+
+            for (int i = 0; i < administradores.Count; i++)
+            {
+                usuarios.Add(administradores[i]);
+            }
         }
     }
 }

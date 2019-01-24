@@ -61,16 +61,18 @@ namespace LocadoraPlatzi
             Console.Write("Digite o nome do filme: ");
             string nomeDoFilme = Console.ReadLine();
 
+            Cliente clienteLogado = Program.usuarioLogado as Cliente;
+
             for (int i = 0; i < Program.filmes.Count; i++)
             {
                 if (Program.filmes[i].nome == nomeDoFilme)
                 {
-                    if (Program.clientes[Program.clienteLogadoID].filmeAlugado != null)
+                    if (clienteLogado.filmeAlugado != null)
                     {
-                        Program.clientes[Program.clienteLogadoID].filmeAlugado.quantidade++;
+                        clienteLogado.filmeAlugado.quantidade++;
                     }
 
-                    Program.clientes[Program.clienteLogadoID].filmeAlugado = Program.filmes[i];
+                    clienteLogado.filmeAlugado = Program.filmes[i];
                     Program.filmes[i].quantidade--;
 
                     Console.Write("Filme alugado com sucesso!");
