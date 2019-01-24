@@ -40,6 +40,32 @@ namespace LocadoraPlatzi
 
             Filme novoFilme = new Filme(nome, anoLancamento, genero, avaliacao, quantidade, lancamento);
             Program.filmes.Add(novoFilme);
+
+            Console.WriteLine("Novo filme adicionado com sucesso. Prossiga para ver a lista completa.");
+            Console.ReadLine();
+            ListarFilmes();
+        }
+
+        public static void ListarFilmes()
+        {
+            Console.Clear();
+            Console.WriteLine("Listar todos os filmes");
+            Console.WriteLine("\n");
+
+            for (int i = 0; i < Program.filmes.Count; i++)
+            {
+                Console.WriteLine("---------------");
+                Console.WriteLine("Nome: " + Program.filmes[i].nome);
+                Console.WriteLine("Ano de lançamento: " + Program.filmes[i].anoLancamento);
+                Console.WriteLine("Gênero: " + Program.filmes[i].genero);
+                Console.WriteLine("Avaliação: " + Program.filmes[i].avaliacao);
+                Console.WriteLine("Quantidade: " + Program.filmes[i].quantidade);
+                Console.WriteLine("É lançamento: " + Program.filmes[i].lancamento);
+                Console.WriteLine("---------------");
+            }
+
+            Console.WriteLine("Pressione qualquer botão para retornar.");
+            Console.ReadLine();
         }
     }
 }

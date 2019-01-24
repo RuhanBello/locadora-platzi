@@ -23,5 +23,9 @@ namespace LocadoraPlatzi
             this.login = login;
             this.senha = senha;
         }
+
+        public virtual void ExibirTela()
+        {
+        }
     }
 }

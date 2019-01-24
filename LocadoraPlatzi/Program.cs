@@ -40,69 +40,24 @@ namespace LocadoraPlatzi
             InicializarFilmes();
             InicializarUsuarios();
 
-            Console.Write("Login: ");
-            string login = Console.ReadLine();
-
-            Console.Write("Senha: ");
-            string senha = Console.ReadLine();
-
-            for (int i = 0; i < usuarios.Count; i++)
-            {
-                if (usuarios[i].Login == login && usuarios[i].Senha == senha)
-                {
-                    usuarioLogado = usuarios[i];
-                }
-            }
-
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine(usuarioLogado.Nome + ", seja bem vindo(a) à locadora de filmes Platzi!");
+                Console.Write("Login: ");
+                string login = Console.ReadLine();
 
-                //if (clientes[clienteLogadoID].filmeAlugado != null)
-                //    Console.WriteLine("O seu filme alugado é: " + clientes[clienteLogadoID].filmeAlugado.nome);
+                Console.Write("Senha: ");
+                string senha = Console.ReadLine();
 
-                Console.WriteLine("Escolha uma opção:");
-                Console.WriteLine("1 - Listar todos os filmes");
-                Console.WriteLine("2 - Listar filmes por gênero");
-                Console.WriteLine("3 - Alugar filme");
-                Console.WriteLine("4 - Sair");
-
-                if (usuarioLogado is Administrador)
+                for (int i = 0; i < usuarios.Count; i++)
                 {
-                    Console.WriteLine("9 - Adicionar filme");
+                    if (usuarios[i].Login == login && usuarios[i].Senha == senha)
+                    {
+                        usuarioLogado = usuarios[i];
+                    }
                 }
 
-                Console.WriteLine("\n");
-
-                int escolha = 0;
-                Int32.TryParse(Console.ReadLine(), out escolha);
-                switch (escolha)
-                {
-                    case 1:
-                        FuncionalidadesCliente.ListarFilmes();
-                        break;
-                    case 2:
-                        FuncionalidadesCliente.ListarPorGenero();
-                        break;
-                    case 3:
-                        FuncionalidadesCliente.AlugarFilme();
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Console.Write("Obrigado por nos visitar!");
-                        Console.ReadLine();
-                        Environment.Exit(0);
-                        break;
-                    case 9:
-                        if (usuarioLogado is Administrador)
-                        {
-                            FuncionalidadesAdministrador.AdicionarFilme();
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                usuarioLogado.ExibirTela();
             }
         }
 
