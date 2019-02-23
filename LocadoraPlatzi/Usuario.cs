@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraPlatzi
 {
-    class Usuario
+    abstract class Usuario
     {
         protected string nome;
         public string Nome { get { return nome; } }
@@ -24,8 +24,6 @@ namespace LocadoraPlatzi
             this.senha = senha;
         }
 
-        public virtual void ExibirTela()
-        {
-        }
+        public abstract void ExibirTela();
     }
 }
